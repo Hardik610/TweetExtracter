@@ -1,5 +1,5 @@
 from tweepy import Stream
-from liball.tweety_listener import TweetyStreamDataListener
+from tweety_listener import TweetyStreamDataListener
 from configure import twitter_config
 import time
 
