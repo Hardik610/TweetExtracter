@@ -4,7 +4,7 @@ from liball.esneed.querybuilder.query_builder import QueryBuilder
 import json, csv
 from api_tweet import Tweety
 from configure import mappings
-from liball.csvconvert import json_to_csv
+from csvconvert import json_to_csv
 
 @app.route('/')
 def index():
