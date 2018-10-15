@@ -1,4 +1,4 @@
-ffrom tweepy.streaming import StreamListener 
+from tweepy.streaming import StreamListener 
 import json
 from myapp.configure import mappings
 from elasticsearch import Elasticsearch
