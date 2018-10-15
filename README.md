@@ -12,8 +12,7 @@ APIs created to store Twitter Streaming Data and retreive data after applying fi
 
 # Setup Project(Installation Instruction)
 1. clone the project
-2. cd to project folder ''' cd TweetExtracter '''
-3. create virtual environment ''' virtualenv venv ''' and activate it ''' source venv/bin/activate 
-'''
-4. Install requirements ''' pip install -r requirements.txt '''
+2. cd to project folder 'cd TweetExtracter'
+3. create virtual environment 'virtualenv venv' and activate it 'source venv/bin/activate'
+4. Install requirements 'pip install -r requirements.txt'
 5. Change the twitter stream API credentials in configure.py file.
