@@ -1,7 +1,11 @@
-from tweepy.streaming import StreamListener 
+ffrom tweepy.streaming import StreamListener 
 import json
-from liball.esneed import es
 from myapp.configure import mappings
+from elasticsearch import Elasticsearch
+from elasticsearch_dsl import Search
+
+es = Elasticsearch()
+dsl_search = Search(using=es)
 
 class TweetyStreamDataListener(StreamListener):
     # on success
