@@ -1,6 +1,6 @@
 from myapp.application import app
 from flask import Flask, request, jsonify
-from liball.esneed.querybuilder.query_builder import QueryBuilder
+from querymaker.query_builder import QueryBuilder
 import json, csv
 from api_tweet import Tweety
 from configure import mappings
