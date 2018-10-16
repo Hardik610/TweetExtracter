@@ -41,3 +41,79 @@ This API fetches stored data by first API based on filters and search keywords a
 
 **Operators:** Following operators are available:-
 - `equals`: for exact match or equal for numeric value
+- `contains` : Facilitates full-text search
+- `wildcard` :
+    * `startswith` : *substring
+    * `endswith` : substring*
+    * `wildcard` : *substring*
+- `gte` : '>=' operator for numeric/datetime values
+- `gt` : '>' operator for numeric/datetime values
+- `lte` : '<=' operator for numeric/datetime values
+- `lt` : '<' operator for numeric/datetime values
+
+**Pagination** is done by the parameters `from` and `size` as it is used in ElasticSearch.
+**AND represents must, OR repesents should and NOT repesents must_not, as matched according to elasticsearch query attributes.**
+
+API2 - `http://0.0.0.0:8080/API2?from=0&size=10
+`
+###### Body in Raw
+```
+{
+    "sort":["created_at"],              
+    "criteria": {
+        "OR": [
+            {
+            "fields": ["tweet_text"],
+            "operator": "contains",
+            "query": "PM"
+            }
+        ]
+    }
+}
+```
+###### Response
+```
+{
+    "count": {
+        "fetched": 20,
+        "total": 35
+    },
+    "results": [
+        {
+            "_id": "AWZ34T6urOtk92tX3kg4",
+            "_index": "tweets_index",
+            "_score": null,
+            "_source": {
+                "country": "",
+                "country_code": "",
+                "created_at": "2018-10-15T13:19:01",
+                "favorite_count": 0,
+                "hashtags": [],
+                "is_retweeted": false,
+                "lang": "en",
+                "location": "Bangalore",
+                "reply_count": 0,
+                "retweet_count": 0,
+                "screen_name": "NdSolanki",
+                "source_device": "Twitter for iPhone",
+                "timestamp_ms": "1539609541073",
+                "tweet_text": "RT @SmokingSkills_: Who praises Modi?\n\n- World Bank\n- British PM  \n- Saudi Arabia\n\nWho makes fun of Modi\n- Pidi comedians\n- The Wire \n- Ser…",
+                "user_name": "Narendra Solanki"
+            },
+            "_type": "tweet",
+            "sort": [
+                1539609541000
+            ]
+        },
+        {.....}
+        {.....}
+        {.....}
+        {.....}
+    ]
+}
+```
+# 3. API to export filtered data as CSV
+
+API3 - `http://0.0.0.0:8080/API3` (Method supported - 'GET', 'POST')
+
+Input should be given in the same format as given in API2. CSV file will be downloaded when puts request on browser. When posted in postman application csv data will be reflected in response body and you can find attachment in header.
